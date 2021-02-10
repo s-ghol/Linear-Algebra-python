@@ -1,3 +1,4 @@
+# author: @s.gholami
 # -----------------------------------------------------------------------
 # read_matrix_input.py
 # -----------------------------------------------------------------------
@@ -9,8 +10,8 @@ def read_matrix_input():
     n = int(input("input number of rows "))  # number of rows
     m = int(input("input number of columns "))  # number of coloumns
     A = []
-    for i in range(n):
-        print("input row ", i+1)
+    for row_element in range(n):
+        print("input row ", row_element+1)
         row = input().split()
         if len(row) == m:
             row_map = map(int, row)  # use map object with each string converted to an integer
