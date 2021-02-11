@@ -2,7 +2,7 @@
 
 ### Matrices in Python (See read_matrix_input.py)
 Matrices are represented as _lists_:
-`matrix_A = [[1, 0], [0, 1]]`. And so matrix_A[0,0] will yield 1
+`matrix_A = [[1, 0], [0, 1]]`. And so 'matrix_A[0,0]' will yield 1
 
 
 ### Adding/ Subtracting tow matrices (See operations_on_matrices.py)
