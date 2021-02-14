@@ -2,14 +2,16 @@
 
 ### Matrices in Python (See read_matrix_input.py)
 Matrices are represented as _lists_:
-`matrix_A = [[1, 0], [0, 1]]`. And so matrix_A[0,0] will yield 1
+`matrix_A = [[1, 0], [0, 1]]`. 
+* If we want to look up a row one: `matrix_A[0] = [1,0]`. 
+* If we want to look up an element in the: `matrix_A[0,0] = 1 `
 
 
-### Adding/ Subtracting tow matrices (See operations_on_matrices.py)
+### Adding/ Subtracting two matrices (See operations_on_matrices.py)
 
 To add or subtract two matrices together we must verify that the dimension of A is same as B. If this is true, then we simply add or subtract the corresponding elements:
 
-<img src="https://render.githubusercontent.com/render/math?math=A%20%3D%5Cbegin%7Bbmatrix%7D%0Aa%20%26%20b%20%5C%5C%20%0Ac%20%26%20d%0A%5Cend%7Bbmatrix%7D%0A%2B%0A%5Cbegin%7Bbmatrix%7D%0Ae%20%26f%20%5C%5C%20%0Ag%20%26h%0A%5Cend%7Bbmatrix%7D%0A%3D%0A%5Cbegin%7Bbmatrix%7D%0Aa%2Be%20%26b%2Bf%20%5C%5C%20%0Ac%2Bg%20%26d%2Bh%20%0A%5Cend%7Bbmatrix%7D">
+<a href="https://www.codecogs.com/eqnedit.php?latex=A&space;=&space;\begin{bmatrix}&space;a&space;&b&space;\\&space;c&d&space;\end{bmatrix},&space;B&space;=&space;\begin{bmatrix}&space;e&space;&f&space;\\&space;g&h&space;\end{bmatrix}:&space;A&plus;B&space;=&space;\begin{bmatrix}&space;a&plus;e&space;&b&plus;f&space;\\&space;c&plus;g&space;&d&plus;h&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?A&space;=&space;\begin{bmatrix}&space;a&space;&b&space;\\&space;c&d&space;\end{bmatrix},&space;B&space;=&space;\begin{bmatrix}&space;e&space;&f&space;\\&space;g&h&space;\end{bmatrix}:&space;A&plus;B&space;=&space;\begin{bmatrix}&space;a&plus;e&space;&b&plus;f&space;\\&space;c&plus;g&space;&d&plus;h&space;\end{bmatrix}" title="A = \begin{bmatrix} a &b \\ c&d \end{bmatrix}, B = \begin{bmatrix} e &f \\ g&h \end{bmatrix}: A+B = \begin{bmatrix} a+e &b+f \\ c+g &d+h \end{bmatrix}" /></a>
 
 ### Scalar Multiplication
 
