@@ -7,6 +7,8 @@
 # Perform operations, return result
 
 import numpy
+import copy
+
 
 #
 # def m_add(A, B):
@@ -48,11 +50,23 @@ import numpy
 #         return result
 
 
-def m_multiply_by_c(A, scalar):
-    result = []
-    for i in A:
-        result.append(list(map(lambda x: scalar * x, i)))
+# def m_multiply_by_c(A, scalar):
+#     result = []
+#     for i in A:
+#         result.append(list(map(lambda x: scalar * x, i)))
 
 
 def m_transpose(A):
-    pass
+    C = copy.deepcopy(A)
+    row_A = len(A)
+    col_A = len(A[0])
+    # change a(ij) to a(ji) to perform the transpose
+    for i in range(row_A):
+        for j in range(col_A):
+            C[j][i] = A[i][j]
+    print(C)
+    return C
+
+#
+# A = [[1, 2], [3, 4]]  # solution: [[1,3],[2,4]]
+# m_transpose(A)
