@@ -15,9 +15,9 @@ To add or subtract two matrices together we must verify that the dimension of A 
 
 ### Scalar Multiplication
 
-Let **A** be a matrix and **c** be a scalar where **Ac = cA** (commutative), then **Ac** is obtained by multiplying all entries in **A** by **c**
+Let **A** be a matrix and **c** be a scalar where **(A)c = c(A)** (commutative), then **(A)c** is obtained by multiplying all entries in **A** by **c**
 
-<img src="https://render.githubusercontent.com/render/math?math=c%5Cbegin%7Bbmatrix%7D%0A%20a_%7B11%7D%26%20a_%7B12%7D%20%5C%5C%20%0A%20a_%7B21%7D%20%26%20a_%7B22%7D%20%0A%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%0A%20c(a_%7B11%7D)%26%20c(a_%7B12%7D)%20%20%5C%5C%20%0Ac(a_%7B21%7D)%20%26%20c(a_%7B22%7D)%0A%5Cend%7Bbmatrix%7D">
+<a href="https://www.codecogs.com/eqnedit.php?latex=c\begin{bmatrix}&space;a_{11}&space;&a_{12}&space;\\&space;a_{21}&space;&a_{22}&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;c(a_{11})&space;&c(a_{12})&space;\\&space;c(a_{21})&space;&c(a_{22})&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?c\begin{bmatrix}&space;a_{11}&space;&a_{12}&space;\\&space;a_{21}&space;&a_{22}&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;c(a_{11})&space;&c(a_{12})&space;\\&space;c(a_{21})&space;&c(a_{22})&space;\end{bmatrix}" title="c\begin{bmatrix} a_{11} &a_{12} \\ a_{21} &a_{22} \end{bmatrix} = \begin{bmatrix} c(a_{11}) &c(a_{12}) \\ c(a_{21}) &c(a_{22}) \end{bmatrix}" /></a>
 
 
 ### Transpose
