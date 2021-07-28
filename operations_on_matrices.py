@@ -2,9 +2,7 @@
 # -----------------------------------------------------------------------
 # operations_on_matrices.py
 # -----------------------------------------------------------------------
-
-# Accept two parameters (matrices) A and B from user
-# Perform operations, return result
+# Perform operations on matrices, return: matrix or scalar
 import sys
 
 import numpy
