@@ -3,8 +3,8 @@
 ### Matrices in Python (See read_matrix_input.py)
 Matrices are represented as _lists_:
 `matrix_A = [[1, 0], [0, 1]]`.
-* If we want to look up a row one: `matrix_A[0] = [1,0]`.
-* If we want to look up an element in the: `matrix_A[0,0] = 1 `
+* If we want to look up a row: `matrix_A[0] = [1,0]`.
+* If we want to look up an element: `matrix_A[0,0] = 1 `
 
 
 ### Adding/ Subtracting two matrices (See operations_on_matrices.py)
