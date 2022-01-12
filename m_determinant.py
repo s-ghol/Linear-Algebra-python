@@ -2,10 +2,8 @@
 # -----------------------------------------------------------------------
 # m_determinant.py
 # -----------------------------------------------------------------------
-
 def m_determinant(A: " 2d matrix") -> int or float:
-    """
-    Finds the determinant of 2x2 matrix
+    """ Finds the determinant of 2x2 matrix
     :param A: 2x2 matrix
     :type A: 2d list
     :return: constant;belongs ot the reals
@@ -23,3 +21,7 @@ def m_determinant(A: " 2d matrix") -> int or float:
         return determinant
 
 
+# main for function call.
+if __name__ == "__main__":  # __name__ = m_determinant
+    A = [[1, 2], [3, 4]]
+    m_determinant(A)

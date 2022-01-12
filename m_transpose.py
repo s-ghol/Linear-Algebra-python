@@ -23,6 +23,8 @@ def m_transpose(A: "mxn matrix") -> list:
     print(C)
     return C
 
-#
-# A = [[1, 2], [3, 4]]  # solution: [[1,3],[2,4]]
-# m_transpose(A)
+
+# main for function call.
+if __name__ == "__main__":
+    A = [[1, 2], [3, 4]]  # solution: [[1,3],[2,4]]
+    m_transpose(A)

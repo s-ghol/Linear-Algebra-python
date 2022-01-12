@@ -35,9 +35,10 @@ def m_multiplication(A, B) -> list:
 
 
 # test
-E = [[2, 1],
-     [1, 1], ]
-F = [[0, 1],
-     [1, 2],
-     [1, 2]]
-m_multiplication(E, F)
+# main for function call.
+if __name__ == "__main__":
+    A = [[2, 1],
+         [1, 1], ]
+    B = [[0, 1],
+         [1, 2]]
+    m_multiplication(A, B)

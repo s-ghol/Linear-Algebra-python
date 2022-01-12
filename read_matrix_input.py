@@ -28,4 +28,8 @@ def equations_to_matrix() -> list:
     return A
 
 
-equations_to_matrix()
+# main for function call.
+if __name__ == "__main__":  # __name__ = m_determinant
+    equations_to_matrix()
+else:
+    print("read_matrix_input.py is being imported into another module ")
