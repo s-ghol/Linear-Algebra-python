@@ -7,217 +7,131 @@ import math
 import pytest
 
 
-class Vector(metaclass=abc.ABCMeta):
-    """
-    Base class for 2d and 3d and possible nd vectors
-    """
+class Vector:
 
-    # Get methods
-    @abc.abstractmethod
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    # get and set
     def get_x(self):
-        pass
-
-    @abc.abstractmethod
-    def get_y(self):
-        pass
-
-    # Set methods
-    @abc.abstractmethod
-    def set_x(self, _x):
-        pass
-
-    @abc.abstractmethod
-    def set_y(self, _y):
-        pass
-
-    # Magnitude and unit vector (direction) and Scalar multiplication
-    @abc.abstractmethod
-    def v_magnitude(self):
-        """
-        Returns the magnitude of a vector
-        :return: scalar
-        :rt_ype: float
-        """
-
-    @abc.abstractmethod
-    def v_direction(self):
-        """
-        Returns the unit vector
-        :return: vector
-        :rt_ype: tuple
-        """
-
-    @abc.abstractmethod
-    def v_scalar_mult(self, scalar):
-        """
-        Scalar multiplication
-        :param scalar: scalar
-        :return: vector
-        :rt_ype: tuple
-        """
-
-    # Vector addition and subtraction
-    @abc.abstractmethod
-    def v_add(self, other):
-        """
-        Vector addition
-        :param other: vector
-        :return: vector
-        :rt_ype: tuple
-        """
-
-    @abc.abstractmethod
-    def v_sub(self, other):
-        """
-        Vector subtraction
-        :param other: vector
-        :return: vector
-        :rt_ype: tuple
-        """
-
-    # Vector dot product and orthogonality
-    @abc.abstractmethod
-    def v_dot(self, other): # other is vector
-        """
-        Dot product of two vectors
-        :param other: vector
-        :return: scalar
-        :rt_ype: float
-        """
-
-
-    @abc.abstractmethod
-    def v_is_orthogonal(self, other):
-        """
-        Checks if two vectors are orthogonal
-        :param other: vector
-        :return: boolean
-        :rt_ype: bool
-        """
-
-    # Projection and Angles
-    @abc.abstractmethod
-    def v_angle_between(self, other):
-        """
-        Angle between two vectors
-        :param other: vector
-        :return: angle
-        :rt_ype: float
-        """
-
-    @abc.abstractmethod
-    def v_orthogonal_projection(self, other):  # self (u) on to  other (v)
-        """
-        Orthogonal projection of u onto v
-        :param other: vector
-        :return: vector
-        :rt_ype: tuple
-        """
-
-    # to-string
-    @abc.abstractmethod
-    def __str__(self):
-        pass
-
-
-# ----------------------------------------------------------------------------------------------------------------------
-
-class D2Vector(Vector):
-
-    def __init__(self, _x=0, _y=0):
-        self._x = _x
-        self._y = _y
-
-    # Get
-    def get_x(self):
-        return self._x
+        return self.x
 
     def get_y(self):
-        return self._y
+        return self.y
 
-    # Set
-    def set_x(self, _x):
-        self._x = _x
+    def set_x(self, x):
+        self.x = x
 
-    def set_y(self, _y):
-        self._y = _y
+    def set_y(self, y):
+        self.y = y
 
-    # Magnitude and Direction for 2d (see doc for theory)
-    def v_magnitude(self):
-        return math.sqrt((self._x ** 2) + (self._y ** 2))
+    # Vector Norm and Direction
+    def v_norm(self):
+        """
+        return the norm of the vector
+        :return: magnitude of the vector
+        :rtype: float
+        """
+        return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
     def v_direction(self):
-        magnitude = self.v_magnitude()
-        return self._x / magnitude, self._y / magnitude
+        """
+        return a unit vector
+        :return: vector
+        :rtype: Vector object
+        """
+        norm = self.v_norm()
+        return Vector(self.x/norm, self.y/norm, self.z/norm)
 
-    def v_scalar_mult(self, scalar):
-        if isinstance(scalar, int) or isinstance(scalar, float):
-            return self._x * scalar, self._y * scalar
-        else:
-            raise TypeError('Scalar must be an int or a float')
+    def v_scalar_multiplication(self, scalar):
+        """
 
-    # Vector addition, subtraction
-    def v_add(self, other):
-        return self._x + other.x, self._y + other.y
+        :param scalar:
+        :type scalar:
+        :return: Vector
+        :rtype: Vector Object
+        """
+        return Vector(self.x*scalar, self.y*scalar, self.z*scalar)
 
-    def v_sub(self, other):
-        return self._x - other.x, self._y - other.y
+    # Addition and Subtraction
+    def v_addition(self, other):
+        """
+        add two vectors
+        :param other: vector
+        :type other: Vector
+        :return: vector
+        :rtype: Vector
+        """
+        return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
 
-    # dot product and orthogonality
-    def v_dot(self, other):
-        return self._x * other.x + self._y * other.y
+    def v_subtraction(self, other):
+        """
+        subtract two vectors
+        :param other: vector
+        :type other: Vector
+        :return: vector
+        :rtype: Vector
+        """
+        return Vector(self.x - other.x, self.y - other.y, self.z - other.z)
 
-    def v_is_orthogonal(self, other):
-        return self.v_dot(other) == 0
+    # Dot product and Orthogonality
+    def v_dot_product(self, other):
+        """
+        dot product of two vectors
+        :param other: vector
+        :type other: Vector
+        :return: dot product of two vectors
+        :rtype: float
+        """
+        return self.x*other.x + self.y*other.y + self.z*other.z
 
-    # Projection and Angles
+    def v_is_orthogonality(self, other):
+        """
+        check if two vectors are orthogonal
+        :param other: vector
+        :type other: Vector
+        :return: True if orthogonal
+        :rtype: bool
+        """
+        return self.v_dot_product(other) == 0
+
+    # Projection, Rejection and Angle between two vectors
     def v_angle_between(self, other):
-        return math.acos(self.v_dot(other) / (self.v_magnitude() * other.v_magnitude()))
+        """
+        angle between two vectors
+        :param other: vector
+        :type other: Vector
+        :return: angle between two vectors
+        :rtype: float
+        """
+        return math.acos(self.v_dot_product(other)/(self.v_norm()*other.v_norm()))
 
-    def v_orthogonal_projection(self, other): # self (u) on to  other (v)
-        temp = (self.v_dot(other) / (other.v_magnitude())**2)  # u.v/||v||^2
-        return other.x * temp, other.y * temp
-    
+    def v_projection(self, other):  # let U = self, V = other
+        """
+        projection of U onto V
+        :param other: vector
+        :type other: Vector
+        :return: projection of one vector on another
+        :rtype: Vector
+        """
+        dot_product = self.v_dot_product(other)
+        norm_squared = other.v_norm()**2
+        result = (dot_product/norm_squared)  # [(u.v) / (||v||^2)]
+        return Vector(result*other.x, result*other.y, result*other.z)  # [(u.v) / (||v||^2)]*v
+
+    def v_rejection(self, other):
+        pass
+
     # to-string
     def __str__(self):
-        return '_x_y co-ordinates: ({},{})'.format(self._x, self._y)
+        return '_x_y co-ordinates: ({},{})'.format(str(self.x), str(self.y))
 
-# ----------------------------------------------------------------------------------------------------------------------
 
-# class D3Vector(Vector):
-#
-#     def __init__(self, _x, _y, z):
-#         Vector.__init__(self, _x, _y)
-#         self.z = z
-#
-#     # Get
-#     def get_x(self):
-#         return self._x
-#
-#     def get_y(self):
-#         return self._y
-#
-#     def get_z(self):
-#         return self._z
-#
-#     # Set
-#     def set_x(self, _x):
-#         self._x = _x
-#
-#     def set_y(self, _y):
-#         self._y = _y
-#
-#     def set_z(self, z):
-#         self._z = z
-#
-#     # Magnitude and Direction for 3d (see doc for theor_y)
-#     def v_magnitude(self):
-#         return math.sqrt((self._x ** 2) + (self._y ** 2) + (self._z ** 2))
-#
-#     def v_direction(self):
-#         magnitude = self.v_magnitude()
-#         return self._x / magnitude, self._y / magnitude, self._z / magnitude
-#
-#     # to-string
-#     def __str__(self):
-#         return '_x_yz co-ordinates: ({},{},{})'.format(self._x, self._y, self._z)
+
+
+
+
+
+
