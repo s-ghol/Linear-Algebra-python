@@ -8,7 +8,7 @@ import sys
 def m_multiplication(A, B) -> list:
     """
     Performs multiplication on matrix A and B
-    Requirement: col_A must equal row_B, which will yield a matrix c of size row_A X col_B
+    Requirement: col_A must equal row_B, which will yield a matrix C of size row_A X col_B
     :param A: Matrix A
     :type A: list
     :param B: Matrix B
