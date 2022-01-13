@@ -65,6 +65,7 @@ class Vector(metaclass=abc.ABCMeta):
         :return: vector
         :rt_ype: tuple
         """
+
     @abc.abstractmethod
     def v_sub(self, other):
         """
@@ -76,21 +77,41 @@ class Vector(metaclass=abc.ABCMeta):
 
     # Vector dot product and orthogonality
     @abc.abstractmethod
-    def v_dot(self, other):
+    def v_dot(self, other): # other is vector
         """
-        Vector dot product
+        Dot product of two vectors
         :param other: vector
         :return: scalar
         :rt_ype: float
         """
 
+
     @abc.abstractmethod
     def v_is_orthogonal(self, other):
         """
-        Checks if the vectors are orthogonal
+        Checks if two vectors are orthogonal
         :param other: vector
-        :return: bool
+        :return: boolean
         :rt_ype: bool
+        """
+
+    # Projection and Angles
+    @abc.abstractmethod
+    def v_angle_between(self, other):
+        """
+        Angle between two vectors
+        :param other: vector
+        :return: angle
+        :rt_ype: float
+        """
+
+    @abc.abstractmethod
+    def v_orthogonal_projection(self, other):  # self (u) on to  other (v)
+        """
+        Orthogonal projection of u onto v
+        :param other: vector
+        :return: vector
+        :rt_ype: tuple
         """
 
     # to-string
@@ -99,9 +120,11 @@ class Vector(metaclass=abc.ABCMeta):
         pass
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
 class D2Vector(Vector):
 
-    def __init__(self, _x, _y):
+    def __init__(self, _x=0, _y=0):
         self._x = _x
         self._y = _y
 
@@ -128,9 +151,12 @@ class D2Vector(Vector):
         return self._x / magnitude, self._y / magnitude
 
     def v_scalar_mult(self, scalar):
-        return self._x * scalar, self._y * scalar
-    
-    # Vector addition and subtraction
+        if isinstance(scalar, int) or isinstance(scalar, float):
+            return self._x * scalar, self._y * scalar
+        else:
+            raise TypeError('Scalar must be an int or a float')
+
+    # Vector addition, subtraction
     def v_add(self, other):
         return self._x + other.x, self._y + other.y
 
@@ -144,9 +170,19 @@ class D2Vector(Vector):
     def v_is_orthogonal(self, other):
         return self.v_dot(other) == 0
 
+    # Projection and Angles
+    def v_angle_between(self, other):
+        return math.acos(self.v_dot(other) / (self.v_magnitude() * other.v_magnitude()))
+
+    def v_orthogonal_projection(self, other): # self (u) on to  other (v)
+        temp = (self.v_dot(other) / (other.v_magnitude())**2)  # u.v/||v||^2
+        return other.x * temp, other.y * temp
+    
     # to-string
     def __str__(self):
         return '_x_y co-ordinates: ({},{})'.format(self._x, self._y)
+
+# ----------------------------------------------------------------------------------------------------------------------
 
 # class D3Vector(Vector):
 #
