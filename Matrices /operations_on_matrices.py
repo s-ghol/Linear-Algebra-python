@@ -83,4 +83,8 @@ def m_multiply_by_c(A, scalar):
     for i in A:
         result.append(list(map(lambda x: scalar * x, i)))
 
+
 # -----------------------------------------------------------------------
+
+if __name__ == "__main__":  # __name__ = m_determinant
+    pass
