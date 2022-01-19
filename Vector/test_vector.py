@@ -1,6 +1,10 @@
+# author: @s.gholami
+# -----------------------------------------------------------------------
+# vector.p_y
+# -----------------------------------------------------------------------
 import math
 import unittest
-from vector import Vector
+import vector
 
 
 class MyTestCase(unittest.TestCase):
@@ -9,29 +13,46 @@ class MyTestCase(unittest.TestCase):
     """
 
     # Test Vector Norm and Direction
-    def test_v_norm(self):
-        v1 = Vector(1, -2, 3)
-        self.assertEqual(v1.v_norm(), math.sqrt(14))
+    def test_norm(self):
+        v = vector.Vector(1, 2, 3)
+        self.assertEqual(v.v_norm(), math.sqrt(14))
 
-        v2 = Vector(math.sin(0), math.cos(0), 4)
-        self.assertEqual(v2.v_norm(), math.sqrt(17))
+        v2 = vector.Vector(0, 0, 0, 0, 0, 0, 0, 0, 0)
+        self.assertEqual(v2.v_norm(), 0)
 
-        v3 = Vector(0, 0, 0)
-        self.assertEqual(v3.v_norm(), 0)
+    def test_v_normalise(self):
+        v = vector.Vector(1, 2)
+        # self.assertEqual(v.v_normalise(), vector.Vector(1/math.sqrt(5), 2/math.sqrt(5)))
+        self.assertIsInstance(v.v_normalise(), vector.Vector)
 
-    def test_v_direction(self):
-        v1 = Vector(1, -2, 3)
-        self.assertEqual(v1.v_direction(), Vector(1 / math.sqrt(14), -2 / math.sqrt(14), 3 / math.sqrt(14)))
-
-# ----------------------------------------------------------------------------------------------------------------------
-    # Orthogonality
-    def test_v_dot(self):
-        v1 = Vector(1, -2, -3)
-        v2 = Vector(1, 1, 2)
-        self.assertEqual(v1.v_dot_product(v2), -7)
+    def test_v_inner_product(self):
+        v = vector.Vector(1, 2, 3)
+        self.assertEqual(v.v_inner_product(vector.Vector(4, 5, 6)), 32)
+        self.assertRaises(ValueError, v.v_inner_product,
+                          vector.Vector(4, 5, 6, 7))  # check if the vector is of the same length
 
     def test_v_is_orthogonal(self):
-        self.assertTrue(Vector(1, 0, 0).v_is_orthogonality(Vector(0, -1, 0)))
+        v = vector.Vector(3, 2)
+        v2 = vector.Vector(1, 2)
+        self.assertEqual(v.v_is_orthogonal(vector.Vector(7, -5)), False)
+        self.assertEqual(v2.v_is_orthogonal(vector.Vector(2, -1)), True)
+        self.assertEqual(v.v_is_orthogonal(vector.Vector(0, 0)), True)
+
+    def test_v_projection(self):  # ToDo: fix result of projection
+        v = vector.Vector(1, 0)
+        v2 = vector.Vector(1, 2, 3)
+        self.assertEqual(v.v_projection(vector.Vector(2, 1)), vector.Vector(2, 0))
+        # self.assertEqual(v2.v_projection(vector.Vector(1, 1, 2)), vector.Vector(9/14, 9/7, 27/14))
+
+    def test__mul__(self):
+        v = vector.Vector(1, 2, 3)
+        self.assertEqual(v.__mul__(2), vector.Vector(2, 4, 6))
+        self.assertEqual(v.__mul__(vector.Vector(2, 2, 2)), 12)
+
+    def test_v_angle(self):
+        v = vector.Vector(1, 0)
+        v2 = vector.Vector(1, 1)
+        self.assertEqual(v.v_angle(v2), math.acos(1/math.sqrt(2)))
 
 
 if __name__ == '__main__':

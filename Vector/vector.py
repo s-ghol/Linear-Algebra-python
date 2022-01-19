@@ -1,48 +1,29 @@
 # author: @s.gholami
 # -----------------------------------------------------------------------
-# m_determinant.p_y
+# vector.p_y
 # -----------------------------------------------------------------------
 import math
 
 
-class Vector:
+class Vector(object):
     """
     Vector class
     """
+    PI = math.pi
 
-    def __init__(self, x, y, z):
+    def __init__(self, *args):
         """
-        Initialize the vector
-        :param x:
-        :type x:
-        :param y:
-        :type y:
-        :param z:
-        :type z:
+        Initialize the  n vector
+        :param args: tuple
+        :type args:
         """
-        if isinstance((x, y, z), (int, float)):
-            self.x = x
-            self.y = y
-            self.z = z
+        if len(args) == 0:
+            self.vector = (0, 0)
         else:
-            raise TypeError('x must be an integer or float')
+            # return a tuple
+            self.vector = args
 
-        # TODO: add check for strings
-        # ToDo: implement n dimensions vector
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # get and set
-    def get_x(self):
-        return self.x
-
-    def get_y(self):
-        return self.y
-
-    def set_x(self, x):
-        self.x = x
-
-    def set_y(self, y):
-        self.y = y
+        # TODO: value of non-void functions should be checked by each calling function
 
     # Vector Norm and Direction
     def v_norm(self) -> float:
@@ -51,145 +32,144 @@ class Vector:
         :return: norm of the vector
         :rtype: float
         """
-        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+        return math.sqrt(sum((v ** 2 for v in self.vector)))
 
-    def v_normalize(self):
+    def v_normalise(self):
         """
-        return a unit vector (normalized vector;provides direction)
-        :return: vector
-        :rtype: Vector object
-        """
-        norm = self.v_norm()
-        return Vector(self.x / norm, self.y / norm, self.z / norm)
-
-    def v_scalar_multiplication(self, scalar):
-        """
-
-        :param scalar:
-        :return: Vector
+        Normalize the vector (unit vector): (1/norm)*(vector)
+        :return: normalized vector
         :rtype: Vector Object
         """
-        return Vector(self.x * scalar, self.y * scalar, self.z * scalar)
+        norm = self.v_norm()
+        return Vector(tuple(v / norm for v in self.vector))
 
-    # ----------------------------------------------------------------------------------------------------------------------
-    # Overloading
-    def __add__(self, other):
+    def v_inner_product(self, u) -> float:
         """
-        Overloading + operator
-        :param other:
-        :type other:
-        :return:
-        :rtype:
+        return the inner product of the vector (dot product of u and v)
+        inner dimension must match
+        :param u: vector
+        :type u: Vector Object
+        :return: inner product
+        :rtype: float
         """
-        return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
+        if len(u.vector) != len(self.vector):
+            raise ValueError("inner dimension must match")
+        else:
+            return sum(x * y for x, y in zip(self.vector, u.vector))
 
-    # Overloading - operator
-    def __sub__(self, other):
+    def v_is_orthogonal(self, u) -> bool:
         """
-        Overloading - operator
-        :param other:
-        :type other:
-        :return:
-        :rtype:
+        return True if u is orthogonal to self
+        :param u: vector
+        :type u: Vector Object
+        :return: True if u is orthogonal to self
+        :rtype: bool
         """
-        return Vector(self.x - other.x, self.y - other.y, self.z - other.z)
+        return self.v_inner_product(u) == 0
 
-    # Overloading * operator
-    def __mul__(self, scalar):
+    def v_projection(self, u): #todo: check for 0 vector. if 0 vector, return 0 vector as projection
         """
-        Overloading * operator  (scalar multiplication)
-        :param scalar:
-        :type scalar:
-        :return:
-        :rtype: Vector
+        return the projection of u on self
+        :param u: vector
+        :type u: Vector Object
+        :return: projection of u on self
+        :rtype: Vector Object
         """
-        return Vector(self.x * scalar, self.y * scalar, self.z * scalar)
+        inner = self.v_inner_product(u)
+        norm = self.v_norm() ** 2
+        inner_over_norm = inner / norm  # u.v/|u|^2
+        res = tuple(inner_over_norm * v for v in self.vector)
+        # return Vector(tuple(res * v for v in self.vector)) # correct but returns extra (). test fails
+        return self.__class__(*res)
 
-    # Overloading / operator
-    def __truediv__(self, scalar):
+    def v_angle(self, u) -> float:
         """
-        Overloading / operator (scalar division)
-        :param scalar:
-        :type scalar:
-        :return:
-        :rtype: Vector
+        return the angle between u and v
+        :param u: vector
+        :type u: Vector Object
+        :return: angle between u and v
+        :rtype: float
         """
-        return Vector(self.x / scalar, self.y / scalar, self.z / scalar)
+        if len(u.vector) == len(self.vector) and len(u.vector) == 2:
+            return math.acos(self.v_inner_product(u) / (self.v_norm() * u.v_norm()))
+        else:
+            raise ValueError("Only 2d vectors are supported")
 
-    # Overloading == operator
+    def v_cross_product(self, u):
+        """
+        return the cross product of u and v
+        :param u: vector
+        :type u: Vector Object
+        :return: cross product of u and v
+        :rtype: Vector Object
+        """
+        # if len(u.vector) != len(self.vector):
+        #     raise ValueError("inner dimension must match")
+        # else:
+        #     res = tuple(x * y for x, y in zip(self.vector, u.vector))
+        #     return self.__class__(*res)
+        pass
+
+    # Overloading operators for vector
     def __eq__(self, other):
         """
         Overloading == operator
-        :param other:
-        :type other:
-        :return:
-        :rtype: bool
-        """
-        return self.x == other.x and self.y == other.y and self.z == other.z
-
-    # Overloading != operator
-    def __ne__(self, other):
-        """
-        Overloading != operator
-        :param other:
-        :type other:
-        :return:
-        :rtype:
-        """
-        return self.x != other.x or self.y != other.y or self.z != other.z
-
-    # Overloading to-string
-    def __str__(self):
-        return 'Coordinates: ({},{},{})'.format(str(self.x), str(self.y), str(self.z))
-
-    # ----------------------------------------------------------------------------------------------------------------------
-    # Dot product and Orthogonality
-    def v_dot_product(self, other):
-        """
-        dot product of two vectors
         :param other: vector
         :type other: Vector Object
-        :return: dot product of two vectors
-        :rtype: float
-        """
-        return self.x * other.x + self.y * other.y + self.z * other.z
-
-    def v_is_orthogonality(self, other):
-        """
-        check if two vectors are orthogonal
-        :param other: vector
-        :type other: Vector
-        :return: True if orthogonal
+        :return: True if vector are equal
         :rtype: bool
         """
-        return self.v_dot_product(other) == 0
+        if isinstance(other, Vector):
+            return self.vector == other.vector
+        else:
+            raise TypeError("unsupported operand type for ==: 'Vector' and '{}'".format(type(other)))
 
-    # Projection, Rejection and Angle between two vectors
-    def v_angle_between(self, other):
+    def __mul__(self, other):
         """
-        angle between two vectors
-        :param other: vector
-        :type other: Vector
-        :return: angle between two vectors
-        :rtype: float
+        Overloading * operator
+        :param other: vector or scalar value
+        :type other: float or Vector Object
+        :return: scalar product or vector product
+        :rtype: float or Vector Object
         """
-        return math.acos(self.v_dot_product(other) / (self.v_norm() * other.v_norm()))
+        if isinstance(other, Vector):  # if other is a vector
+            return self.v_inner_product(other)
+        elif isinstance(other, (int, float)):  # if other is a scalar
+            res = tuple(other * v for v in self.vector)
+            return self.__class__(*res)
+            # return Vector(tuple(other * v for v in self.vector)) # correct but returns extra (). test fails
+        else:
+            raise TypeError("unsupported operand for multiplication: 'Vector' and '{}'".format(type(other)))
 
-    def v_projection(self, other):  # let U = self, V = other
+    def v_gram_schmidt(self):
         """
-        projection of U onto V
-        :param other: vector
-        :type other: Vector
-        :return: projection of one vector on another
-        :rtype: Vector
+        Gram-Schmidt process: Let S = {s_1, s_2, ..., s_n} be a linearly independent set of vectors. Then,
+        Gram-Schmidt process is a process of orthonormalizing the set of vectors in S.
+        :return: orthogonal set of vectors
+        :rtype: Vector Object
         """
-        dot_uv = self.v_dot_product(other)
-        dot_v = other.v_dot_product(other)
-        result = (dot_uv / dot_v)  # [(u.v) / v.v]
-        return Vector(other.v_scalar_multiplication(result))  # [(u.v) / v.v]*v
-
-    def v_rejection(self, other):
         pass
+
+    def __add__(self, other):
+        pass
+
+    def __sub__(self, other):
+        pass
+
+    def __str__(self):
+        return str(self.vector)
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __getitem__(self, item):
+        return self.vector[item]
+
+    def __len__(self):
+        return len(self.vector)
+
+    def __iter__(self):
+        return iter(self.vector)
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ def m_transpose(A: "mxn matrix") -> list:
     # # Faster method
     # return map(list, zip(*A))  # How: let A = [[1, 2], [3, 4]]; then (*A) passes in [1,2],[3,4]
     # #  instead of [[1, 2], [3, 4]]. Returns [(1,3),(2,4)]
-    # Essentially zip(*M) returns the columns of a matrx
+    # Essentially zip(*M) returns the columns of a matrix
 
 
 # main for function call.
