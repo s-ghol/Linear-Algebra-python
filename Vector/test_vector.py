@@ -54,6 +54,13 @@ class MyTestCase(unittest.TestCase):
         v2 = vector.Vector(1, 1)
         self.assertEqual(v.v_angle(v2), math.acos(1/math.sqrt(2)))
 
+    def test_add(self):
+        v = vector.Vector(1, 2, 3)
+        self.assertEqual(v.__add__(vector.Vector(4, 5, 6)), vector.Vector(5, 7, 9))
+    
+    def test_sub(self):
+        v = vector.Vector(1, 2, 3)
+        self.assertEqual(v.__sub__(vector.Vector(4, 5, 6)), vector.Vector(-3, -3, -3))
 
 if __name__ == '__main__':
     unittest.main()

@@ -110,6 +110,15 @@ class Vector(object):
         #     return self.__class__(*res)
         pass
 
+    def v_gram_schmidt(self):
+        """
+        Gram-Schmidt process: Let S = {s_1, s_2, ..., s_n} be a linearly independent set of vectors. Then,
+        Gram-Schmidt process is a process of orthonormalizing the set of vectors in S.
+        :return: orthogonal set of vectors
+        :rtype: Vector Object
+        """
+        pass
+
     # Overloading operators for vector
     def __eq__(self, other):
         """
@@ -141,20 +150,39 @@ class Vector(object):
         else:
             raise TypeError("unsupported operand for multiplication: 'Vector' and '{}'".format(type(other)))
 
-    def v_gram_schmidt(self):
+    def __add__(self, other):
         """
-        Gram-Schmidt process: Let S = {s_1, s_2, ..., s_n} be a linearly independent set of vectors. Then,
-        Gram-Schmidt process is a process of orthonormalizing the set of vectors in S.
-        :return: orthogonal set of vectors
+        Overloading + operator
+        :param other: vector
+        :type other: Vector Object
+        :return: vector sum
         :rtype: Vector Object
         """
-        pass
-
-    def __add__(self, other):
-        pass
+        if isinstance(other, Vector):
+            if len(other.vector) != len(self.vector):
+                raise ValueError("inner dimension must match")
+            else:
+                res = tuple(x + y for x, y in zip(self.vector, other.vector))
+                return self.__class__(*res)
+        else:
+            raise TypeError("unsupported operand for addition: 'Vector' and '{}'".format(type(other)))
 
     def __sub__(self, other):
-        pass
+        """
+        Overloading - operator
+        :param other: vector
+        :type other: Vector Object
+        :return: vector difference
+        :rtype: Vector Object
+        """
+        if isinstance(other, Vector):
+            if len(other.vector) != len(self.vector):
+                raise ValueError("inner dimension must match")
+            else:
+                res = tuple(x - y for x, y in zip(self.vector, other.vector))
+                return self.__class__(*res)
+        else:
+            raise TypeError("unsupported operand for subtraction: 'Vector' and '{}'".format(type(other)))
 
     def __str__(self):
         return str(self.vector)
