@@ -67,7 +67,7 @@ class Vector(object):
         """
         return self.v_inner_product(u) == 0
 
-    def v_projection(self, u): #todo: check for 0 vector. if 0 vector, return 0 vector as projection
+    def v_projection(self, u):  # todo: check for 0 vector. if 0 vector, return 0 vector as projection
         """
         return the projection of u on self
         :param u: vector
@@ -75,12 +75,22 @@ class Vector(object):
         :return: projection of u on self
         :rtype: Vector Object
         """
-        inner = self.v_inner_product(u)
-        norm = self.v_norm() ** 2
+        inner = self.v_inner_product(u)  # dot(u,v)
+        norm = self.v_norm() ** 2  # dot(v,v)
         inner_over_norm = inner / norm  # u.v/|u|^2
         res = tuple(inner_over_norm * v for v in self.vector)
         # return Vector(tuple(res * v for v in self.vector)) # correct but returns extra (). test fails
         return self.__class__(*res)
+
+    def v_rejection(self, u):
+        """
+        return the rejection of u from self
+        :param u: vector
+        :type u: Vector Object
+        :return: rejection of u from self
+        :rtype: Vector Object
+        """
+        return self.__class__(self - self.v_projection(u))
 
     def v_angle(self, u) -> float:
         """
