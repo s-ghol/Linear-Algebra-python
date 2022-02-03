@@ -3,13 +3,16 @@
 # vector.p_y
 # -----------------------------------------------------------------------
 import math
+import sympy
 
 
 class Vector(object):
     """
     Vector class
     """
-    PI = math.pi
+    PI: float = math.pi
+    STANDARD_BASIS_2D_VECTORS: tuple = ((1, 0), (0, 1))
+    STANDARD_BASIS_3D_VECTORS: tuple = ((1, 0, 0), (0, 1, 0), (0, 0, 1))
 
     def __init__(self, *args):
         """
@@ -67,7 +70,7 @@ class Vector(object):
         """
         return self.v_inner_product(u) == 0
 
-    def v_projection(self, u):  # todo: check for 0 vector. if 0 vector, return 0 vector as projection
+    def v_projection(self, u):  # todo: check for 0 vector.
         """
         return the projection of u on self
         :param u: vector
