@@ -9,7 +9,7 @@
 ## Matrices 
 
 ### Matrices in Python (See read_matrix_input.py)
-**Definition:** Matrices are represented as _lists_:`A = ([1, 0], [0, 1])`
+**Definition:** Matrices are represented as _lists_:`A = ([1, 0], [0, 1])` or `A = [[1, 0], [0, 1]]`
 
 * If we want to look up a row: `A[0] = [1,0]`
 * If we want to look up an element: `A[0,0] = 1 `
@@ -94,7 +94,7 @@ The 2D rotation matrix is given by:
 
 <img src="https://latex.codecogs.com/svg.image?R=\left[\begin{array}{cc}\cos&space;\theta&space;&&space;-\sin&space;\theta&space;\\\sin&space;\theta&space;&&space;\cos&space;\theta\end{array}\right]" title="R=\left[\begin{array}{cc}\cos \theta & -\sin \theta \\\sin \theta & \cos \theta\end{array}\right]" />
 
-A 30 degress rotation **R** becomes:
+A 30 degree rotation **R** becomes:
 
 <img src="https://latex.codecogs.com/svg.image?R=\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]" title="R=\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]" />
 
@@ -102,7 +102,9 @@ We can verify that R is indeed orthogonal by evaluating <img src="https://latex.
 
 <img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]" /> <img src="https://latex.codecogs.com/svg.image?=" title="=" /> <img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;1&space;/&space;2&space;\\-1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]=\left[\begin{array}{ll}1&space;&&space;0&space;\\0&space;&&space;1\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & 1 / 2 \\-1 / 2 & \sqrt{3} / 2\end{array}\right]\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]=\left[\begin{array}{ll}1 & 0 \\0 & 1\end{array}\right]" />
 
+If A is orthogonal then the following is also true:
 
+<img src="https://latex.codecogs.com/svg.image?A^{\mathrm{T}}=A^{-1}" title="A^{\mathrm{T}}=A^{-1}" />
 
 
 
