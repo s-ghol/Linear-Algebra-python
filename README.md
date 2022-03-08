@@ -8,7 +8,7 @@
 
 ## Matrices 
 
-### Matrices in Python (See read_matrix_input.py)
+### Matrices in Python (See read_matrix_input.py and matrix class)
 **Definition:** Matrices are represented as _lists_:`A = ([1, 0], [0, 1])` or `A = [[1, 0], [0, 1]]`
 
 * If we want to look up a row: `A[0] = [1,0]`
@@ -17,7 +17,7 @@
 In the matrix class; we represent matrices by lists contained inside a tuple.
 
 
-### Adding/ Subtracting two matrices (See operations_on_matrices.py)
+### Adding/ Subtracting two matrices (See matrix class)
 
 To add or subtract two matrices together we must verify that the dimension of A is same as B. If this is true, then we simply add or subtract the corresponding elements:
 
@@ -30,7 +30,7 @@ To add or subtract two matrices together we must verify that the dimension of A 
 <img src="https://latex.codecogs.com/svg.image?c\left[\begin{array}{ll}a_{11}&space;&&space;a_{12}&space;\\a_{21}&space;&&space;a_{22}\end{array}\right]=\left[\begin{array}{ll}c\left(a_{11}\right)&space;&&space;c\left(a_{12}\right)&space;\\c\left(a_{21}\right)&space;&&space;c\left(a_{22}\right)\end{array}\right]" title="c\left[\begin{array}{ll}a_{11} & a_{12} \\a_{21} & a_{22}\end{array}\right]=\left[\begin{array}{ll}c\left(a_{11}\right) & c\left(a_{12}\right) \\c\left(a_{21}\right) & c\left(a_{22}\right)\end{array}\right]" />
 
 
-### Matrix Multiplication of A and B (See operations_on_matrices.py)
+### Matrix Multiplication of A and B (See matrix class)
 
 When performing matrix multiplication, the following condition must be met:
 > The number of columns in the first matrix must be the same as the number of rows in the second matrix.
