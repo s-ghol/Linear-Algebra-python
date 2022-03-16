@@ -116,12 +116,17 @@ class Vector(object):
         :return: cross product of u and v
         :rtype: Vector Object
         """
-        # if len(u.vector) != len(self.vector):
-        #     raise ValueError("inner dimension must match")
-        # else:
-        #     res = tuple(x * y for x, y in zip(self.vector, u.vector))
-        #     return self.__class__(*res)
-        pass
+        if len(u.vector) != len(self.vector):
+            raise ValueError("inner dimension must match")
+        # for 2d, return the determinant
+        elif len(u.vector) == 2:
+            ux, uy = u.vector
+            vx, vy = self.vector
+            return Vector(*(0, 0, uy * vx - ux * vy))
+        elif len(u.vector) == 3:
+            ux, uy, uz = u.vector
+            vx, vy, vz = self.vector
+            return Vector(*(uy * vz - uz * vy, uz * vx - ux * vz, ux * vy - uy * vx))
 
     def v_gram_schmidt(self):
         """

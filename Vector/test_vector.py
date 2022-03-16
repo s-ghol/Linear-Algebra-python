@@ -20,6 +20,14 @@ class MyTestCase(unittest.TestCase):
         v2 = vector.Vector(0, 0, 0, 0, 0, 0, 0, 0, 0)
         self.assertEqual(v2.v_norm(), 0)
 
+    def test_cross_product(self):
+        v = vector.Vector(1, 2)
+        v2 = vector.Vector(1, 2, 3)
+        v3 = vector.Vector(1, 0, 0)
+
+        self.assertEqual(v.v_cross_product(vector.Vector(2, 3)), (0, 0, -1))
+        self.assertEqual(v2.v_cross_product(vector.Vector(2, 3, 4)), vector.Vector(1, -2, 1))
+
     def test_v_normalise(self):
         v = vector.Vector(1, 2)
         # self.assertEqual(v.v_normalise(), vector.Vector(1/math.sqrt(5), 2/math.sqrt(5)))
@@ -61,6 +69,7 @@ class MyTestCase(unittest.TestCase):
     def test_sub(self):
         v = vector.Vector(1, 2, 3)
         self.assertEqual(v.__sub__(vector.Vector(4, 5, 6)), vector.Vector(-3, -3, -3))
+
 
 if __name__ == '__main__':
     unittest.main()
