@@ -2,7 +2,55 @@
 
 ## Vectors 
 
+## Vector Space
 
+The vector space (***n-tuples***) is defined as:
+
+- **Vectors:** Are the elements of the vector space
+
+  
+
+  <img src="https://latex.codecogs.com/svg.image?\mathbb{R}^{n}=\left\{\left[a_{1},&space;\ldots,&space;a_{n}\right]:&space;a_{1},&space;\ldots,&space;a_{n}&space;\in&space;\mathbb{R}\right\}\\&space;The\&space;scalars&space;\&space;a_{1},...,a_{n}\&space;are\&space;called\&space;components&space;" title="\mathbb{R}^{n}=\left\{\left[a_{1}, \ldots, a_{n}\right]: a_{1}, \ldots, a_{n} \in \mathbb{R}\right\}\\ The\ scalars \ a_{1},...,a_{n}\ are\ called\ components " />
+
+  
+
+- **Vector Addition:** Using the  [parallelogram law](https://mathworld.wolfram.com/ParallelogramLaw.html) vector addition can be performed by adding the corresponding components
+
+  
+
+  <img src="https://latex.codecogs.com/svg.image?\left[a_{1},&space;\ldots,&space;a_{n}\right]&plus;\left[b_{1},&space;\ldots,&space;b_{n}\right]=\left[a_{1}&plus;b_{1},&space;\ldots,&space;a_{n}&plus;b_{n}\right]" title="\left[a_{1}, \ldots, a_{n}\right]+\left[b_{1}, \ldots, b_{n}\right]=\left[a_{1}+b_{1}, \ldots, a_{n}+b_{n}\right]" />
+
+  
+
+- **Scalar Multiplication:** If *s* is a scalar then the scalar multiplication can be performed by multiplying each component of the vector by *s*
+
+  
+
+  <img src="https://latex.codecogs.com/svg.image?s\left[a_{1},&space;\ldots,&space;a_{n}\right]=\left[s&space;a_{1},&space;\ldots,&space;s&space;a_{n}\right]" title="s\left[a_{1}, \ldots, a_{n}\right]=\left[s a_{1}, \ldots, s a_{n}\right]" />
+
+  
+
+## Vector Equality 
+
+Two n-tuple vectors  <img src="https://latex.codecogs.com/svg.image?\left[a_{1},&space;\ldots,&space;a_{n}\right],&space;\quad\left[b_{1},&space;\ldots,&space;b_{n}\right]&space;\in&space;\mathbb{R}^{n}" title="\left[a_{1}, \ldots, a_{n}\right], \quad\left[b_{1}, \ldots, b_{n}\right] \in \mathbb{R}^{n}" /> are equal iff <img src="https://latex.codecogs.com/svg.image?a_{1}=b_{1},&space;\ldots,&space;a_{n}=b_{n}" title="a_{1}=b_{1}, \ldots, a_{n}=b_{n}" />
+
+
+
+### Dot Product
+
+Pass
+
+### Cross Product
+
+In two dimensional space, the cross product of u an v is defined to be the det(uv), essentially we can think of this as a 3D cross product but with the z components set to zero. The result should yield a vector perpendicular to the plane with zero values for the x and y components.
+
+<img  src="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}&space;\times&space;\mathbf{v}&space;=\operatorname{det}(\mathbf{u}&space;\mathbf{v})&=u_{x}&space;v_{y}-u_{y}&space;v_{x}\end{aligned}"  title="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}  \times \mathbf{v} =\operatorname{det}(\mathbf{u} \mathbf{v})&=u_{x}  v_{y}-u_{y} v_{x}\end{aligned}" />
+
+
+
+For three dimensional vectors, the cross product takes two 3d vectors u and v and produces another 3d vector. Formally:
+
+<img  src="https://latex.codecogs.com/svg.image?Let\&space;u&space;=&space;(u_x,u_y,u_z)\&space;and\&space;v=(v_x,v_y,v_z)\&space;then&space;\\&space;\mathbf{u}&space;\times&space;\mathbf{v}=\left(u_{y}&space;v_{z}-u_{z}&space;v_{y},&space;u_{z}&space;v_{x}-u_{x}&space;v_{z},&space;u_{x}&space;v_{y}-u_{y}&space;v_{x}\right)"  title="https://latex.codecogs.com/svg.image?Let\ u = (u_x,u_y,u_z)\  and\ v=(v_x,v_y,v_z)\ then \\ \mathbf{u} \times \mathbf{v}=\left(u_{y}  v_{z}-u_{z} v_{y}, u_{z} v_{x}-u_{x} v_{z}, u_{x} v_{y}-u_{y}  v_{x}\right)" />
 
 
 
