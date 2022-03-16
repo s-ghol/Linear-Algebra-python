@@ -91,3 +91,9 @@ class MyTestCase(unittest.TestCase):
         u = [1, 2]
         v = [1, 1]
         self.assertEqual(Matrix.dot(u, v), 3)
+
+    def test_inverse(self):
+        """ Test inverse function """
+        self.assertEqual(Matrix([1, 2], [3, 4]).inverse(), Matrix([-2, 1], [1.5, -0.5]))
+        self.assertEqual(Matrix([0, 2], [1, 4]).inverse(), Matrix([-2, 1], [0.5, 0]))
+        self.assertRaises(ValueError, Matrix([0, 0], [0, 0]).inverse)

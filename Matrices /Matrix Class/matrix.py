@@ -58,7 +58,7 @@ class Matrix(object):
         else:
             raise ValueError("Matrix must be a list of lists")
 
-    def dimension(self)->Tuple[int, int]:
+    def dimension(self) -> Tuple[int, int]:
         """
         Dimension of the matrix
         :return: dimension
@@ -66,7 +66,7 @@ class Matrix(object):
         """
         return self.rows, self.cols
 
-    def rref(self, other)->'Matrix':
+    def rref(self, other) -> 'Matrix':
         """
         Reduced row echelon form
 
@@ -87,11 +87,19 @@ class Matrix(object):
 
     def inverse(self) -> 'Matrix':
         """
-        Inverse of the matrix; calls the rrref method
+        Inverse of the matrix; calls the rref method for 3d
         :return: inverse matrix
         :rtype: Matrix
         """
-        pass
+        # 2d matrix: 1/det(A) * adj(A)
+        if self.rows == 2 and self.cols == 2:
+            determinant = self.determinant()
+            if determinant == 0:
+                raise ValueError("Matrix is not invertible")
+            else:
+                self.matrix = ([self.matrix[1][1], -self.matrix[0][1]], [-self.matrix[1][0], self.matrix[0][0]])
+                res = self.__mul__(1 / determinant)
+                return res
 
     def transpose(self) -> 'Matrix':
         """
@@ -249,7 +257,7 @@ class Matrix(object):
             return __class__(*((list(other * x for x in row) for row in self.matrix)))
         elif isinstance(other, Matrix) and self.cols == other.rows:
             return self.__class__(*list(list(
-                Matrix.dot(row, col) for col in zip(*other.matrix))for row in self.matrix))
+                Matrix.dot(row, col) for col in zip(*other.matrix)) for row in self.matrix))
         else:
             raise ValueError("Matrix must be the same size")
 
