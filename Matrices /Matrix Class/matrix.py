@@ -58,7 +58,7 @@ class Matrix(object):
         else:
             raise ValueError("Matrix must be a list of lists")
 
-    def dimension(self):
+    def dimension(self)->Tuple[int, int]:
         """
         Dimension of the matrix
         :return: dimension
@@ -66,7 +66,7 @@ class Matrix(object):
         """
         return self.rows, self.cols
 
-    def rref(self, other):
+    def rref(self, other)->'Matrix':
         """
         Reduced row echelon form
 
@@ -77,23 +77,23 @@ class Matrix(object):
         """
         pass
 
-    def rank(self):
+    def rank(self) -> int:
         """
-        Rank of the matrix
+        Rank of the matrix; requires rref method to identify linearly independent rows
         :return: rank
         :rtype: int
         """
         pass
 
-    def inverse(self):
+    def inverse(self) -> 'Matrix':
         """
-        Inverse of the matrix
+        Inverse of the matrix; calls the rrref method
         :return: inverse matrix
         :rtype: Matrix
         """
         pass
 
-    def transpose(self):
+    def transpose(self) -> 'Matrix':
         """
         Transpose of the matrix
         :return: Transposed matrix
@@ -121,7 +121,7 @@ class Matrix(object):
         :return: determinant
         :rtype: float
         """
-        # todo: generalise the function for n using the determinant formula (check README)
+        # todo: generalise the function for n using the determinant formula
         if self.rows == self.cols:  # check if matrix is square
             if self.rows == 1:  # if matrix is 1x1
                 return self.matrix[0][0]

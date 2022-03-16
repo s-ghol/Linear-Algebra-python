@@ -1,6 +1,31 @@
 
 
-## Vectors 
+
+## Groups
+
+A group **G** is a set together with an operation which satisfies:
+
+<img  src="https://latex.codecogs.com/svg.image?\\1.\&space;Closure:\&space;\forall\&space;a,b\in&space;G\cdot&space;a\cdot&space;b\in&space;G\\2.\&space;Associativity:\&space;\left(&space;a\cdot&space;b\right)&space;\cdot&space;c=a\cdot&space;\left(&space;b\cdot&space;c\right)&space;,\forall\&space;&space;a,b,c\in&space;G\\3.\&space;Identity:\&space;\exists\&space;e&space;\in&space;G\&space;such\&space;that\&space;a&space;\cdot&space;e&space;=&space;e&space;\cdot&space;a&space;=&space;a&space;\\4.\&space;Inverse:\&space;\forall\&space;a&space;\in&space;G,\&space;\exists\&space;a^{-1}\&space;\in\&space;G\&space;such\&space;that\&space;a\cdot&space;b&space;=&space;e&space;&space;"  title="https://latex.codecogs.com/svg.image?\\1.\ Closure:\ \forall\  a,b\in G\cdot a\cdot b\in G\\2.\ Associativity:\ \left( a\cdot b\right)  \cdot c=a\cdot \left( b\cdot c\right) ,\forall\  a,b,c\in G\\3.\  Identity:\ \exists\ e \in G\ such\ that\ a \cdot e = e \cdot a = a \\4.\  Inverse:\ \forall\ a \in G,\ \exists\ a^{-1}\ \in\ G\ such\ that\  a\cdot b = e  " />
+
+**Example:**
+
+<img  src="https://latex.codecogs.com/svg.image?\\(\mathbb{N},&space;&plus;)_1:&space;is\&space;not\&space;a\&space;group\&space;since\&space;the\&space;inverse\&space;and\&space;identity\&space;are\&space;not\&space;satisfied\\1:&space;Read\&space;as\&space;(Set,&space;Operator)"  title="https://latex.codecogs.com/svg.image?\\(\mathbb{N}, +)_1: is\  not\ a\ group\ since\ the\ inverse\ and\ identity\ are\ not\  satisfied\\1: Read\ as\ (Set, Operator)" />
+
+If a group satisfies commutativity property (ab=ba) then that groups is called a n **Abelian group** or **commutative group**. (Z,+) is an Abelian group.
+
+
+
+## Fields
+
+A set ***F*** with two operations ***(addition and multiplication)*** is called a field if the following ten axioms hold:
+
+<img  src="https://latex.codecogs.com/svg.image?\\1.\&space;Closure:\&space;\forall\&space;a,b\in&space;F,&space;a&plus;b\in&space;F\\2.\&space;Associativity:\&space;\left(&space;a&plus;b\right)&plus;c=a&plus;\left(&space;b&plus;&space;c\right)&space;,\forall\&space;&space;a,b,c\in&space;F\\3.\&space;Identity:\&space;\exists\&space;0&space;\in&space;F\&space;such\&space;that\&space;a&space;&plus;&space;0&space;=&space;a,\&space;\forall\&space;a&space;\in&space;F&space;&space;\\4.\&space;Inverse:\&space;\forall\&space;a&space;\in&space;F,\&space;\exists\&space;-a\&space;\in\&space;F\&space;such\&space;that\&space;a&plus;(-a)&space;=&space;0\\&space;5.\&space;Commutativity(Abelian):\&space;&space;\forall\&space;a,b&space;\in&space;F,\&space;a&plus;b&space;=&space;b&plus;a"  title="https://latex.codecogs.com/svg.image?\\1.\ Closure:\ \forall\  a,b\in F, a+b\in F\\2.\ Associativity:\ \left( a+b\right)+c=a+\left( b+  c\right) ,\forall\  a,b,c\in F\\3.\ Identity:\ \exists\ 0 \in F\ such\  that\ a + 0 = a,\ \forall\ a \in F  \\4.\ Inverse:\ \forall\ a \in F,\  \exists\ -a\ \in\ F\ such\ that\ a+(-a) = 0\\ 5.\  Commutativity(Abelian):\  \forall\ a,b \in F,\ a+b = b+a" />
+
+- The first five axioms (above) tell us that a set is a **group** and the axioms **hold for addition**. The next five axioms will hold for multiplication.
+
+  <img  src="https://latex.codecogs.com/svg.image?\\6.\&space;Closure:\&space;\forall\&space;a,b\in&space;F,&space;a\cdot&space;b\in&space;F\\7.\&space;Associativity:\&space;\left(&space;a\cdot&space;b\right)\cdot&space;c=a\cdot&space;\left(&space;b\cdot&space;c\right)&space;,\forall\&space;&space;a,b,c\in&space;F\\8.\&space;Identity:\&space;\exists\&space;1&space;\in&space;F\&space;such\&space;that\&space;a\cdot&space;1&space;=&space;a,\&space;\forall\&space;a&space;\in&space;F&space;&space;\\9.\&space;Inverse:\&space;\forall\&space;a\neq&space;0,&space;\exists\&space;a^{-1}&space;\in&space;F,such\&space;that\&space;a\cdot&space;a^{-1}&space;=&space;I\\&space;10.\&space;Commutativity(Abelian):\&space;&space;\forall\&space;a,b&space;\in&space;F,\&space;a\cdot&space;b&space;=&space;b\cdot&space;a\\11.\&space;Distributivity:\&space;\forall&space;a,b,c&space;\in&space;F,a\cdot&space;(b&plus;c)&space;=&space;(a\cdot&space;b)&plus;(a\cdot&space;c)"  title="https://latex.codecogs.com/svg.image?\\6.\ Closure:\ \forall\  a,b\in F, a\cdot b\in F\\7.\ Associativity:\ \left( a\cdot b\right)\cdot  c=a\cdot \left( b\cdot c\right) ,\forall\  a,b,c\in F\\8.\ Identity:\  \exists\ 1 \in F\ such\ that\ a\cdot 1 = a,\ \forall\ a \in F  \\9.\  Inverse:\ \forall\ a\neq 0, \exists\ a^{-1} \in F,such\ that\ a\cdot  a^{-1} = I\\ 10.\ Commutativity(Abelian):\  \forall\ a,b \in F,\ a\cdot b  = b\cdot a\\11.\ Distributivity:\ \forall a,b,c \in F,a\cdot (b+c) =  (a\cdot b)+(a\cdot c)" />
+
+
 
 ## Vector Space
 
