@@ -1,52 +1,6 @@
 
 
-## Vector Space
-
-The vector space (***n-tuples***) is defined as:
-
-- **Vectors:** Are the elements of the vector space
-
-  
-
-  <img src="https://latex.codecogs.com/svg.image?\mathbb{R}^{n}=\left\{\left[a_{1},&space;\ldots,&space;a_{n}\right]:&space;a_{1},&space;\ldots,&space;a_{n}&space;\in&space;\mathbb{R}\right\}\\&space;The\&space;scalars&space;\&space;a_{1},...,a_{n}\&space;are\&space;called\&space;components&space;" title="\mathbb{R}^{n}=\left\{\left[a_{1}, \ldots, a_{n}\right]: a_{1}, \ldots, a_{n} \in \mathbb{R}\right\}\\ The\ scalars \ a_{1},...,a_{n}\ are\ called\ components " />
-
-  
-
-- **Vector Addition:** Using the  [parallelogram law](https://mathworld.wolfram.com/ParallelogramLaw.html) vector addition can be performed by adding the corresponding components
-
-  
-
-  <img src="https://latex.codecogs.com/svg.image?\left[a_{1},&space;\ldots,&space;a_{n}\right]&plus;\left[b_{1},&space;\ldots,&space;b_{n}\right]=\left[a_{1}&plus;b_{1},&space;\ldots,&space;a_{n}&plus;b_{n}\right]" title="\left[a_{1}, \ldots, a_{n}\right]+\left[b_{1}, \ldots, b_{n}\right]=\left[a_{1}+b_{1}, \ldots, a_{n}+b_{n}\right]" />
-
-  
-
-- **Scalar Multiplication:** If *s* is a scalar then the scalar multiplication can be performed by multiplying each component of the vector by *s*
-
-  
-
-  <img src="https://latex.codecogs.com/svg.image?s\left[a_{1},&space;\ldots,&space;a_{n}\right]=\left[s&space;a_{1},&space;\ldots,&space;s&space;a_{n}\right]" title="s\left[a_{1}, \ldots, a_{n}\right]=\left[s a_{1}, \ldots, s a_{n}\right]" />
-
-  
-
-## Vector Equality 
-
-Two n-tuple vectors  <img src="https://latex.codecogs.com/svg.image?\left[a_{1},&space;\ldots,&space;a_{n}\right],&space;\quad\left[b_{1},&space;\ldots,&space;b_{n}\right]&space;\in&space;\mathbb{R}^{n}" title="\left[a_{1}, \ldots, a_{n}\right], \quad\left[b_{1}, \ldots, b_{n}\right] \in \mathbb{R}^{n}" /> are equal iff <img src="https://latex.codecogs.com/svg.image?a_{1}=b_{1},&space;\ldots,&space;a_{n}=b_{n}" title="a_{1}=b_{1}, \ldots, a_{n}=b_{n}" />
-
-
-
-### Dot Product
-
-### Cross Product
-In two dimensional space, the cross product of u an v is defined to be the det(uv), essentially we can think of this as a 3D cross product but with the z components set to zero. The result should yield a vector perpendicular to the plane with zero values for the x and y components.
-
-<img  src="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}&space;\times&space;\mathbf{v}&space;=\operatorname{det}(\mathbf{u}&space;\mathbf{v})&=u_{x}&space;v_{y}-u_{y}&space;v_{x}\end{aligned}"  title="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}  \times \mathbf{v} =\operatorname{det}(\mathbf{u} \mathbf{v})&=u_{x}  v_{y}-u_{y} v_{x}\end{aligned}" />
-
-
-
-For three dimensional vectors, the cross product takes two 3d vectors u and v and produces another 3d vector. Formally:
-
-<img  src="https://latex.codecogs.com/svg.image?Let\&space;u&space;=&space;(u_x,u_y,u_z)\&space;and\&space;v=(v_x,v_y,v_z)\&space;then&space;\\&space;\mathbf{u}&space;\times&space;\mathbf{v}=\left(u_{y}&space;v_{z}-u_{z}&space;v_{y},&space;u_{z}&space;v_{x}-u_{x}&space;v_{z},&space;u_{x}&space;v_{y}-u_{y}&space;v_{x}\right)"  title="https://latex.codecogs.com/svg.image?Let\ u = (u_x,u_y,u_z)\  and\ v=(v_x,v_y,v_z)\ then \\ \mathbf{u} \times \mathbf{v}=\left(u_{y}  v_{z}-u_{z} v_{y}, u_{z} v_{x}-u_{x} v_{z}, u_{x} v_{y}-u_{y}  v_{x}\right)" />
-
+## Vectors 
 
 
 
@@ -54,17 +8,13 @@ For three dimensional vectors, the cross product takes two 3d vectors u and v an
 
 ## Matrices 
 
-**Definition:** 
-
 ### Matrices in Python (See read_matrix_input.py)
-
-Matrices are represented as _lists_: `A = ([1, 0], [0, 1])` or `A = [[1, 0], [0, 1]]`
+**Definition:** Matrices are represented as _lists_:`A = ([1, 0], [0, 1])` or `A = [[1, 0], [0, 1]]`
 
 * If we want to look up a row: `A[0] = [1,0]`
-* If we want to look up the columns we use `zip(*A)`: `print(*zip(*A))` 
 * If we want to look up an element: `A[0,0] = 1 `
 
-In the matrix class; we represent matrices by lists contained inside a tuple. 
+In the matrix class; we represent matrices by lists contained inside a tuple.
 
 
 ### Adding/ Subtracting two matrices (See operations_on_matrices.py)
@@ -101,12 +51,12 @@ Transpose is an operator that performs the following: transpose of the _m x n_ m
 
 <img src="https://latex.codecogs.com/svg.image?If\&space;A&space;=&space;[ij]\&space;then\&space;tr(A)=a_{1,1}&plus;a_{2,2}&plus;...&plus;a_{n,n}" title="If\ A = [ij]\ then\ tr(A)=a_{1,1}+a_{2,2}+...+a_{n,n}" />
 
-### Elementary Matrices
-**Definition:** An _elementary matrix_ is a matrix obtained by applying exactly one _elementary row operation_ to the identity matrix (this will lead us to the rref discussion). 
-
 ### Reduced Row Echelon Form
 
 
+
+### Elementary Matrices
+**Definition:** An _elementary matrix_ is a matrix obtained by applying exactly one _elementary row operation_ to the identity matrix. 
 
 ### Equivalent Matrix 
 **Definition:** A matrix _B_ is said to be equivalent to another matrix _A_ if _B_ can be obtained by applying a ***finite*** number of elementary row operations to _A_.
@@ -121,8 +71,8 @@ Transpose is an operator that performs the following: transpose of the _m x n_ m
 
 In general the determinat is a function which takes and input (square matrix) and produces an output (scalar value).
 
->* If A is a nonhomogeneous matrix with a non-zero determinant, then A has unique solution
->* If A has a non-zero determinant then A has an inverse; with linear independent columns
+* If A is a nonhomogeneous matrix with a non-zero determinant, then A has unique solution
+* If A has a non-zero determinant then A has an inverse; with linear independent columns
 
 ##### 2D Determinant 
 
@@ -132,13 +82,11 @@ A 2 by 2 determinant is defined to be
 
 ##### 3D Determinant 
 
-is a real [square matrix](https://en.wikipedia.org/wiki/Square_matrix) whose columns and rows are [orthonormal](https://en.wikipedia.org/wiki/Orthonormality) [vectors](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics))
+
 
 ### Orthogonal Matrices and Rotation 
 
-**Definition:** A real square matrix <img src="https://latex.codecogs.com/svg.image?A&space;\in&space;M_{n,n}" title="A \in M_{n,n}" /> is **orthogonal** if the columns and rows of *A* are orthonormal (norm = 1) and
-
-<img src="https://latex.codecogs.com/svg.image?A^{T}A&space;=&space;I\&space;where\&space;I\&space;is\&space;the\&space;identity\&space;matrix" title="A^{T}A = I\ where\ I\ is\ the\ identity\ matrix" />
+**Definition:** A matrix <img src="https://latex.codecogs.com/svg.image?A&space;\in&space;M_{n,n}" title="A \in M_{n,n}" /> is **orthogonal** if <img src="https://latex.codecogs.com/svg.image?A^{T}A&space;=&space;I\&space;where\&space;I\&space;is\&space;the\&space;identity\&space;matrix" title="A^{T}A = I\ where\ I\ is\ the\ identity\ matrix" />
 
 **Example:**
 
@@ -152,11 +100,7 @@ A 30 degree rotation **R** becomes:
 
 We can verify that R is indeed orthogonal by evaluating <img src="https://latex.codecogs.com/svg.image?A^{T}A" title="A^{T}A" />
 
-
-
-<img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]" />
-
-<img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;1&space;/&space;2&space;\\-1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]=\left[\begin{array}{ll}1&space;&&space;0&space;\\0&space;&&space;1\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & 1 / 2 \\-1 / 2 & \sqrt{3} / 2\end{array}\right]\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]=\left[\begin{array}{ll}1 & 0 \\0 & 1\end{array}\right]" />
+<img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]^{T}\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]" /> <img src="https://latex.codecogs.com/svg.image?=" title="=" /> <img src="https://latex.codecogs.com/svg.image?\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;1&space;/&space;2&space;\\-1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]=\left[\begin{array}{ll}1&space;&&space;0&space;\\0&space;&&space;1\end{array}\right]" title="\left[\begin{array}{rr}\sqrt{3} / 2 & 1 / 2 \\-1 / 2 & \sqrt{3} / 2\end{array}\right]\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]=\left[\begin{array}{ll}1 & 0 \\0 & 1\end{array}\right]" />
 
 If A is orthogonal then the following is also true:
 
