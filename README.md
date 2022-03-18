@@ -3,7 +3,7 @@
 
 ## Groups
 
-A group **G** is a set together with an operation which satisfies:
+A group **G** is a set together with an operation that satisfies:
 
 <img  src="https://latex.codecogs.com/svg.image?\\1.\&space;Closure:\&space;\forall\&space;a,b\in&space;G\cdot&space;a\cdot&space;b\in&space;G\\2.\&space;Associativity:\&space;\left(&space;a\cdot&space;b\right)&space;\cdot&space;c=a\cdot&space;\left(&space;b\cdot&space;c\right)&space;,\forall\&space;&space;a,b,c\in&space;G\\3.\&space;Identity:\&space;\exists\&space;e&space;\in&space;G\&space;such\&space;that\&space;a&space;\cdot&space;e&space;=&space;e&space;\cdot&space;a&space;=&space;a&space;\\4.\&space;Inverse:\&space;\forall\&space;a&space;\in&space;G,\&space;\exists\&space;a^{-1}\&space;\in\&space;G\&space;such\&space;that\&space;a\cdot&space;b&space;=&space;e&space;&space;"  title="https://latex.codecogs.com/svg.image?\\1.\ Closure:\ \forall\  a,b\in G\cdot a\cdot b\in G\\2.\ Associativity:\ \left( a\cdot b\right)  \cdot c=a\cdot \left( b\cdot c\right) ,\forall\  a,b,c\in G\\3.\  Identity:\ \exists\ e \in G\ such\ that\ a \cdot e = e \cdot a = a \\4.\  Inverse:\ \forall\ a \in G,\ \exists\ a^{-1}\ \in\ G\ such\ that\  a\cdot b = e  " />
 
@@ -11,7 +11,7 @@ A group **G** is a set together with an operation which satisfies:
 
 <img  src="https://latex.codecogs.com/svg.image?\\(\mathbb{N},&space;&plus;)_1:&space;is\&space;not\&space;a\&space;group\&space;since\&space;the\&space;inverse\&space;and\&space;identity\&space;are\&space;not\&space;satisfied\\1:&space;Read\&space;as\&space;(Set,&space;Operator)"  title="https://latex.codecogs.com/svg.image?\\(\mathbb{N}, +)_1: is\  not\ a\ group\ since\ the\ inverse\ and\ identity\ are\ not\  satisfied\\1: Read\ as\ (Set, Operator)" />
 
-If a group satisfies commutativity property (ab=ba) then that groups is called a n **Abelian group** or **commutative group**. (Z,+) is an Abelian group.
+If a group satisfies the commutativity property (ab=ba) then that group is called an **Abelian group** or **commutative group**. (Z,+) is an Abelian group.
 
 
 
@@ -67,7 +67,7 @@ Pass
 
 ### Cross Product
 
-In two dimensional space, the cross product of u an v is defined to be the det(uv), essentially we can think of this as a 3D cross product but with the z components set to zero. The result should yield a vector perpendicular to the plane with zero values for the x and y components.
+In two dimensional space, the cross product of u and v is defined to be the det(uv), essentially we can think of this as a 3D cross product but with the z components set to zero. The result should yield a vector perpendicular to the plane with zero values for the x and y components.
 
 <img  src="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}&space;\times&space;\mathbf{v}&space;=\operatorname{det}(\mathbf{u}&space;\mathbf{v})&=u_{x}&space;v_{y}-u_{y}&space;v_{x}\end{aligned}"  title="https://latex.codecogs.com/svg.image?\begin{aligned}\mathbf{u}  \times \mathbf{v} =\operatorname{det}(\mathbf{u} \mathbf{v})&=u_{x}  v_{y}-u_{y} v_{x}\end{aligned}" />
 
@@ -92,7 +92,7 @@ In the matrix class; we represent matrices by lists contained inside a tuple.
 
 ### Adding/ Subtracting two matrices (See operations_on_matrices.py)
 
-To add or subtract two matrices together we must verify that the dimension of A is same as B. If this is true, then we simply add or subtract the corresponding elements:
+To add or subtract two matrices together we must verify that the dimension of A is the same as B. If this is true, then we simply add or subtract the corresponding elements:
 
 <img src="https://latex.codecogs.com/svg.image?A=\left[\begin{array}{ll}a&space;&&space;b&space;\\c&space;&&space;d\end{array}\right],&space;B=\left[\begin{array}{ll}e&space;&&space;f&space;\\g&space;&&space;h\end{array}\right]:&space;A&plus;B=\left[\begin{array}{ll}a&plus;e&space;&&space;b&plus;f&space;\\c&plus;g&space;&&space;d&plus;h\end{array}\right]" title="A=\left[\begin{array}{ll}a & b \\c & d\end{array}\right], B=\left[\begin{array}{ll}e & f \\g & h\end{array}\right]: A+B=\left[\begin{array}{ll}a+e & b+f \\c+g & d+h\end{array}\right]" />
 
@@ -142,10 +142,10 @@ Transpose is an operator that performs the following: transpose of the _m x n_ m
 
 <img src="https://latex.codecogs.com/svg.image?|A|=\sum_{j=1}^{n}(-1)^{1&plus;j}&space;a_{1&space;j}\left|A_{1&space;j}\right|" title="|A|=\sum_{j=1}^{n}(-1)^{1+j} a_{1 j}\left|A_{1 j}\right|" />
 
-In general the determinat is a function which takes and input (square matrix) and produces an output (scalar value).
+In general, the determinant is a function that takes an input (square matrix) and produces an output (scalar value).
 
-* If A is a nonhomogeneous matrix with a non-zero determinant, then A has unique solution
-* If A has a non-zero determinant then A has an inverse; with linear independent columns
+* If A is a non-homogeneous matrix with a non-zero determinant, then A has a unique solution
+* If A has a non-zero determinant then A has an inverse; with linearly independent columns
 
 ##### 2D Determinant 
 
@@ -167,7 +167,7 @@ The 2D rotation matrix is given by:
 
 <img src="https://latex.codecogs.com/svg.image?R=\left[\begin{array}{cc}\cos&space;\theta&space;&&space;-\sin&space;\theta&space;\\\sin&space;\theta&space;&&space;\cos&space;\theta\end{array}\right]" title="R=\left[\begin{array}{cc}\cos \theta & -\sin \theta \\\sin \theta & \cos \theta\end{array}\right]" />
 
-A 30 degree rotation **R** becomes:
+A 30-degree rotation **R** becomes:
 
 <img src="https://latex.codecogs.com/svg.image?R=\left[\begin{array}{rr}\sqrt{3}&space;/&space;2&space;&&space;-1&space;/&space;2&space;\\1&space;/&space;2&space;&&space;\sqrt{3}&space;/&space;2\end{array}\right]" title="R=\left[\begin{array}{rr}\sqrt{3} / 2 & -1 / 2 \\1 / 2 & \sqrt{3} / 2\end{array}\right]" />
 
@@ -184,8 +184,8 @@ If A is orthogonal then the following is also true:
 
 ### Matrix plus Graph Theory (See graphs.py)
 
-Graph is a pair _G = (V, E)_, _V_ is a set of **vertices**, and _E_ is the set of **edges**. Two vertices u,v are adjacent iff an edge e = uv.
-**Adjacency Matrix M:** is a relation over the set of vertices of the graph G. M is a nxn matrix where n = cardinality (number of elements of a set) of V:
+A Graph is a pair _G = (V, E)_, _V_ is a set of **vertices**, and _E_ is the set of **edges**. Two vertices u,v are adjacent iff an edge e = uv.
+**Adjacency Matrix M:** is a relation over the set of vertices of the graph G. M is an nxn matrix where n = cardinality (number of elements of a set) of V:
 
 <img src="https://latex.codecogs.com/svg.image?M(i,&space;j)=&space;\begin{cases}1,&space;&&space;\text&space;{&space;if&space;edge&space;}&space;i&space;j&space;\in&space;E&space;\\&space;0,&space;&&space;\text&space;{&space;if&space;edge&space;}&space;i&space;j&space;\notin&space;E\end{cases}" title="M(i, j)= \begin{cases}1, & \text { if edge } i j \in E \\ 0, & \text { if edge } i j \notin E\end{cases}" />
 
